@@ -115,8 +115,8 @@ public class Sort {
     }
 
 	//Основная процедура сортировки
-    static void sort(int a[]) throws Exception {
-
+    static void sort(int a[], boolean up) throws Exception {
+            
 		//Строим неубывающую кучу
 		//Большие элементы из начала массива
 		//закидываем поближе к концу
@@ -134,10 +134,18 @@ public class Sort {
 		for (int j = 1; j < a.length; j++) {
 			int T = a[j];
 			int i = j - 1;
-			while (i >= 0 && a[i] > T) {
+                        if (up){ 
+			while (i >= 0 && a[i] > T) { //здесь сортируется от меньшего к большему
 				a[i + 1] = a[i];
 				i -= 1;
-			}
+                            } 
+                        }
+                        else {
+                           while (i >= 0 && a[i] < T) { //здесь сортируется от меньшего к большему
+				a[i + 1] = a[i];
+				i -= 1;
+                                }
+                        }  
 			a[i + 1] = T;
 		}
 
